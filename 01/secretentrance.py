@@ -20,12 +20,9 @@ def part_one(inp):
     pos = 50
     for rot in inp:
         # print('pos: {}, rot: {}'.format(pos, rot))
-        if rot[0] == 'L':
-            pos = (pos - (int(rot[1:]) % 100) + 100) % 100
-        elif rot[0] == 'R':
-            pos = (pos + (int(rot[1:]) % 100)) % 100
-        if pos == 0:
-            count += 1
+        move = int(rot.replace('L','-').replace('R','+'))
+        pos = (pos + move) % 100
+        count += 1 if pos == 0 else 0
         # print('after| pos: {}'.format(pos))
     return count
 
