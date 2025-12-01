@@ -19,11 +19,9 @@ def part_one(inp):
     count = 0
     pos = 50
     for rot in inp:
-        # print('pos: {}, rot: {}'.format(pos, rot))
         move = int(rot.replace('L','-').replace('R','+'))
         pos = (pos + move) % 100
         count += 1 if pos == 0 else 0
-        # print('after| pos: {}'.format(pos))
     return count
 
 def part_two(inp):
@@ -32,12 +30,10 @@ def part_two(inp):
     count = 0
     pos = 50
     for rot in inp:
-        # print('pos: {}, rot: {}'.format(pos, rot))
         move = int(rot.replace('L','-').replace('R','+'))
         count += move // (100 * int(move/abs(move)))
         count += int(pos != 0 and (pos + (move % -100)) <= 0) if move <= 0 else int(pos != 0 and (pos + (move % 100)) >= 100)
         pos = (pos + move) % 100
-        # print('after| pos: {}, count: {}'.format(pos, count))
     return count
 
 if __name__ == "__main__":
