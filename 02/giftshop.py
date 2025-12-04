@@ -14,7 +14,7 @@ def main() -> None:
     testinp = get_input(os.path.join(cwd, 'test_input'))
     print('Invalid IDs total: {}'.format(part_one(inp)))
 
-def part_one(inp: list[list[int]]) -> None:
+def part_one(inp: list[list[int]]) -> int:
     total = 0
     for i in inp:
         s,e = i[0],i[1]
