@@ -7,7 +7,7 @@ sys.path.append(parent)
 
 from common import get_input
 
-def main():
+def main() -> None:
     inp = get_input(os.path.join(cwd, 'input'))
 
 if __name__ == "__main__":
