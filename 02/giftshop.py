@@ -13,6 +13,7 @@ def main() -> None:
     inp = get_input(os.path.join(cwd, 'input'))
     testinp = get_input(os.path.join(cwd, 'test_input'))
     print('Invalid IDs total: {}'.format(part_one(inp)))
+    print('Invalid IDs actual total: {}'.format(part_two(inp)))
 
 def part_one(inp: list[list[int]]) -> int:
     total = 0
@@ -24,8 +25,19 @@ def part_one(inp: list[list[int]]) -> int:
             s = get_next_dbl(s)
     return total
 
+def part_two(inp: list[list[int]]) -> int:
+    total = 0
+    for i in inp:
+        for n in range(i[0], i[1] + 1):
+            if is_tpl(n):
+                total += n
+    return total
+
 def is_dbl(num: int) -> bool:
     return False if len(str(num)) % 2 != 0 else bool(re.match(r'^(\d+)\1$', str(num)))
+
+def is_tpl(num: int) -> bool:
+    return bool(re.match(r'^(\d+)\1{1,}$', str(num)))
 
 def get_next_dbl(num: int) -> int:
     if num < 0:
@@ -38,6 +50,7 @@ def get_next_dbl(num: int) -> int:
         return int(str(fh) * 2)
     return int(str(int(strnum[:len(strnum) // 2]) + 1) * 2)
 
+'''
 def get_prev_dbl(num: int) -> int:
     if (num < 0) or (len(str(num)) < 2):
         return None
@@ -48,6 +61,7 @@ def get_prev_dbl(num: int) -> int:
     if int(str(fh) * 2) < num:
         return int(str(fh) * 2)
     return int(str(int(strnum[:len(strnum) // 2]) - 1) * 2)
+'''
 
 if __name__ == "__main__":
     main()
