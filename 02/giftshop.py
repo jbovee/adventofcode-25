@@ -25,7 +25,7 @@ def part_one(inp: list[list[int]]) -> int:
             s = get_next_dbl(s)
     return total
 
-def part_two(inp: list[list[int]]) -> int:
+def part_two(inp: [[int]]) -> int:
     total = 0
     for i in inp:
         for n in range(i[0], i[1] + 1):
