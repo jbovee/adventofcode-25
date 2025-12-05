@@ -14,12 +14,12 @@ def main() -> None:
     print('Actual output joltage: {}'.format(part_two(inp)))
 
 def part_one(inp: [str]) -> int:
-    return sum([get_voltage(bank) for bank in inp])
+    return sum([get_joltage(bank) for bank in inp])
 
 def part_two(inp: [str]) -> int:
-    return sum([get_big_voltage(bank) for bank in inp])
+    return sum([get_big_joltage(bank) for bank in inp])
 
-def get_voltage(bank: str) -> int:
+def get_joltage(bank: str) -> int:
     batL, batLInd, batR = 0, 0, 0
     for i in range(len(bank) - 1):
         battery = int(bank[i])
@@ -32,7 +32,7 @@ def get_voltage(bank: str) -> int:
             batR = battery
     return int('{}{}'.format(batL, batR))
 
-def get_big_voltage(bank: str) -> int:
+def get_big_joltage(bank: str) -> int:
     batteryInds = list(range(len(bank) - 12, len(bank)))
     leftmost = -1
     for i in range(len(batteryInds)):
