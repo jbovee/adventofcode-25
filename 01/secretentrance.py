@@ -7,13 +7,13 @@ sys.path.append(parent)
 
 from common import get_input
 
-def main():
+def main() -> None:
     inp = get_input(os.path.join(cwd, 'input'))
     testinp = get_input(os.path.join(cwd, 'test_input'))
     print('Door password is: {}'.format(part_one(inp)))
     print('Door password is actually: {}'.format(part_two(inp)))
 
-def part_one(inp):
+def part_one(inp: [str]) -> int:
     # starts at 50
     # number of times dial is left pointing at 0 after any rotation in the sequence
     count = 0
@@ -24,7 +24,7 @@ def part_one(inp):
         count += 1 if pos == 0 else 0
     return count
 
-def part_two(inp):
+def part_two(inp: [str]) -> int:
     # starts at 50
     # number of times dial points at or passes 0
     count = 0
