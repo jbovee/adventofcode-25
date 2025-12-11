@@ -9,6 +9,7 @@ from common import get_input
 
 def main() -> None:
     inp = get_input(os.path.join(cwd, 'input'))
+    testinp = get_input(os.path.join(cwd, 'test_input'))
 
 if __name__ == "__main__":
     main()
